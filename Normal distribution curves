@@ -1,0 +1,9 @@
+library(ggpubr)
+library(moments)
+data("USJudgeRatings")
+df <- USJudgeRatings
+head(df)
+# Distribution of CONT variable
+ggdensity(df, x = "CONT", fill = "lightgray", title = "CONT") +
+  scale_x_continuous(limits = c(3, 12)) +
+  stat_overlay_normal_density(color = "red", linetype = "dashed")
